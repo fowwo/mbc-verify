@@ -126,12 +126,16 @@ function verify(fileContent) {
 						outputFail(formatTime(a.time), `This <b>slider</b> should not <b>reverse</b>.`);
 					}
 					valid = false;
-				} else if (a.getDuration(rhythmDifficulty, rhythmTimingPoints) > b.getDuration(difficulty, timingPoints)) {
-					outputFail(formatTime(a.time), `This slider is too short. It only lasts <b>${formatTime(b.getDuration(rhythmDifficulty, rhythmTimingPoints))}</b> but should last <b>${formatTime(a.getDuration(difficulty, timingPoints))}</b>.`);
-					valid = false;
-				} else if (a.getDuration(rhythmDifficulty, rhythmTimingPoints) < b.getDuration(difficulty, timingPoints)) {
-					outputFail(formatTime(a.time), `This slider is too long. It lasts <b>${formatTime(b.getDuration(rhythmDifficulty, rhythmTimingPoints))}</b> but should only last <b>${formatTime(a.getDuration(difficulty, timingPoints))}</b>.`);
-					valid = false;
+				} else {
+					let rhythmDuration = a.getDuration(rhythmDifficulty, rhythmTimingPoints);
+					let duration = b.getDuration(difficulty, timingPoints);
+					if (duration < rhythmDuration) {
+						outputFail(formatTime(a.time), `This slider is too short. It only lasts <b>${formatTime(duration)}</b> but should last <b>${formatTime(rhythmDuration)}</b>.`);
+						valid = false;
+					} else if (duration > rhythmDuration) {
+						outputFail(formatTime(a.time), `This slider is too long. It lasts <b>${formatTime(duration)}</b> but should only last <b>${formatTime(rhythmDuration)}</b>.`);
+						valid = false;
+					}
 				}
 			} else if (a.constructor.name == "Spinner") {
 				if (a.duration > b.duration) {
