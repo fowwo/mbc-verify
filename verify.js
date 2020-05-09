@@ -111,7 +111,7 @@ function verify(fileContent) {
 		for (var i = 0; i < rhythmObjects.length && i < hitObjects.length; i++) {
 			let a = rhythmObjects[i];
 			let b = hitObjects[i];
-			if (a.time != b.time) {
+			if (a.time + 2 < b.time || a.time - 2 > b.time) {
 				outputFail(formatTime(a.time), `There should be a <b>${a.constructor.name.toLowerCase()}</b> here.`);
 				valid = false;
 			} else if (a.constructor.name != b.constructor.name) {
