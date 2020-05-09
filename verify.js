@@ -13,27 +13,27 @@ function verify(fileContent) {
 
 		content.innerHTML = "";
 		
-		const rawRhythmDifficulty = rhythm.match(/(\[Difficulty\])(.+?)((\r\n){2}|$)/s)[0].trim().split("\r\n");
-		const rawRhythmTimingPoints = rhythm.match(/(\[TimingPoints\])(.+?)((\r\n){2}|$)/s)[0].trim().split("\r\n");
-		const rawRhythmObjects = rhythm.match(/(\[HitObjects\])(.+?)((\r\n){2}|$)/s)[0].trim().split("\r\n");
+		const rawRhythmDifficulty = rhythm.replace(/\r/g, "").match(/(\[Difficulty\])(.+?)((\n){2}|$)/s)[0].trim().split("\n");
+		const rawRhythmTimingPoints = rhythm.replace(/\r/g, "").match(/(\[TimingPoints\])(.+?)((\n){2}|$)/s)[0].trim().split("\n");
+		const rawRhythmObjects = rhythm.replace(/\r/g, "").match(/(\[HitObjects\])(.+?)((\n){2}|$)/s)[0].trim().split("\n");
 			
 		var rawDifficulty;
 		var rawTimingPoints;
 		var rawObjects;
 		try {
-			rawDifficulty = fileContent.match(/(\[Difficulty\])(.+?)((\r\n){2}|$)/s)[0].trim().split("\r\n");
+			rawDifficulty = fileContent.replace(/\r/g, "").match(/(\[Difficulty\])(.+?)((\n){2}|$)/s)[0].trim().split("\n");
 		} catch (e) {
 			outputError(e, "bro i think something is wrong with your .osu file... (failed to find <b>[Difficulty]</b>)");
 			return;
 		}
 		try {
-			rawTimingPoints = fileContent.match(/(\[TimingPoints\])(.+?)((\r\n){2}|$)/s)[0].trim().split("\r\n");
+			rawTimingPoints = fileContent.replace(/\r/g, "").match(/(\[TimingPoints\])(.+?)((\n){2}|$)/s)[0].trim().split("\n");
 		} catch (e) {
 			outputError(e, "bro i think something is wrong with your .osu file... (failed to find <b>[TimingPoints]</b>)");
 			return;
 		}
 		try {
-			rawObjects = fileContent.match(/(\[HitObjects\])(.+?)((\r\n){2}|$)/s)[0].trim().split("\r\n");
+			rawObjects = fileContent.replace(/\r/g, "").match(/(\[HitObjects\])(.+?)((\n){2}|$)/s)[0].trim().split("\n");
 		} catch (e) {
 			outputError(e, "bro i think something is wrong with your .osu file... (failed to find <b>[HitObjects]</b>)");
 			return;
