@@ -74,7 +74,7 @@ function Slider(x, y, time, newCombo, hitSound, curve, slides, length, edgeSound
 		} else {
 			let beatLength = uninheritedPoint.beatLength;
 			let multiplier = inheritedPoint.uninherited ? 1 : -100 / inheritedPoint.beatLength;
-			return (this.length / (difficulty.sliderMultiplier * multiplier * 100) * beatLength * slides).toFixed(3);
+			return Math.round(this.length / (difficulty.sliderMultiplier * multiplier * 100) * beatLength * slides * 1000) / 1000;
 		}
 
 	}
