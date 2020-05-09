@@ -55,28 +55,27 @@ function Slider(x, y, time, newCombo, hitSound, curve, slides, length, edgeSound
 
 	this.getDuration = (difficulty, timingPoints) => {
 		
-		var uninheritedPoint;
-		var inheritedPoint;
+		var beatLength;
+		var multiplier;
 		for (var i = 0; i < timingPoints.length; i++) {
 			let t = timingPoints[i];
 			if (t.time > this.time) {
 				break;
 			}
 			if (t.uninherited) {
-				uninheritedPoint = t;
+				beatLength = t.beatLength;
+				multiplier = 1;
+			} else {
+				multiplier = -100 / t.beatLength;
 			}
-			inheritedPoint = t;
 		}
-
-		if (uninheritedPoint == undefined) {
-			console.log("bro... where's the uninherited timing point");
+		if (beatLength == undefined) {
+			console.warn("bro... where's the uninherited timing point");
 			return;
-		} else {
-			let beatLength = uninheritedPoint.beatLength;
-			let multiplier = inheritedPoint.uninherited ? 1 : -100 / inheritedPoint.beatLength;
-			return Math.round(this.length / (difficulty.sliderMultiplier * multiplier * 100) * beatLength * slides * 1000) / 1000;
 		}
-
+		
+		return Math.round(length / (difficulty.sliderMultiplier * 100) * (beatLength / multiplier) * slides * 1000) / 1000;
+	
 	}
 
 }
