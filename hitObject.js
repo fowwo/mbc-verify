@@ -36,8 +36,6 @@ function Circle(x, y, time, newCombo, hitSound, hitSample) {
 	this.hitSound = parseInt(hitSound);
 	this.hitSample = hitSample;
 
-	console.log(this);
-
 }
 
 // x, y, time, type, hitSound, curveType|curvePoints, slides, length, edgeSounds, edgeSets, hitSample
