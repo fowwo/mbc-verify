@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MBC Verify</title>
+	<meta name="author" content="fowwo">
+	<meta charset="UTF-8">
+	<link href='https://fonts.googleapis.com/css?family=ABeeZee' rel='stylesheet'>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<script type="text/javascript" src="verify.js"></script>
+<script type="text/javascript" src="difficulty.js"></script>
+<script type="text/javascript" src="timingPoint.js"></script>
+<script type="text/javascript" src="hitObject.js"></script>
+<script type="text/javascript" src="time.js"></script>
+<script type="text/javascript" src="bitString.js"></script>
+<script type="text/javascript" src="output.js"></script>
+<body>
+	<div class="container">
+		<input type="file" id="upload-file" accept=".osu" hidden="hidden">
+		<button type="button" id="upload-button">verify!</button>
+	</div>
+	<script type="text/javascript">
+		const uploadFile = document.getElementById("upload-file");
+		const uploadButton = document.getElementById("upload-button");
+		const uploadText = document.getElementById("upload-text");
+
+		uploadFile.addEventListener("change", function (){
+			if (uploadFile.value) {
+				var fr = new FileReader();
+				fr.onload = function (){
+					verify(fr.result);
+				}
+				fr.readAsText(this.files[0]);
+			}
+		});
+		uploadButton.addEventListener("click", () => {
+			uploadFile.click();
+		});
+	</script>
+	<div id="content-box" style="margin: 40px 0 0 0;"></div>
+</body>
+</html>

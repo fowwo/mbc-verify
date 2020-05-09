@@ -1,0 +1,63 @@
+body {
+	margin: 0 15%;
+	color: #fac;
+	font-family: "ABeeZee";
+	font-size: 24px;
+	background-color: #282828;
+	background-image: linear-gradient(#401828, black);
+	background-attachment: fixed;
+	background-position: top;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+b {
+	color: #fff;
+	text-shadow: 0 0 10px #fff;
+}
+#upload-button {
+	margin-top: 10px;
+	width: 180px;
+	height: 180px;
+	color: white;
+	font-size: 30px;
+	font-weight: 1000;
+	font-family: inherit;
+	background-color: yellow;
+	background: url("./img/triangles!.jpg");
+	background-size: contain;
+	border: 7px solid #fff;
+	border-radius: 50%;
+	cursor: pointer;
+
+	transition-property: margin-top, width, height, box-shadow, text-shadow, font-size;
+	transition-duration: 100ms;
+	transition-timing-function: cubic-bezier(0, 0, 0, 1);
+}
+#upload-button:focus {
+	outline: 0px;
+}
+#upload-button:hover {
+	margin-top: 0;
+	width: 200px;
+	height: 200px;
+	box-shadow: 0px 0px 100px #f58f;
+	text-shadow: 0px 0px 10px #fff;
+	font-size: 35px;
+}
+#status-icon {
+	border-radius: 50%;
+}
+.container {
+	margin-top: 40px;
+	height: 200px;
+	width: 100%;
+	text-align: center;
+}
+h1 {
+	font-family: "ABeeZee";
+	color: #cdf;
+	text-align: center;
+	text-decoration: none;
+	font-size: 60px;
+	margin: 50px;
+}
