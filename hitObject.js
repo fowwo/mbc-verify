@@ -17,7 +17,7 @@ function ParseHitObject(string) {
 	} else if (bit(type, 3)) {
 		return new Spinner(time, hitSound, line[5], hitSample);
 	} else {
-		console.log("uh oh... stinky...");
+		console.warn(`uh oh... stinky... (this hitobject has an invalid type: ${type})`);
 		return null;
 	}
 
@@ -29,26 +29,28 @@ function ParseHitObject(string) {
 
 function Circle(x, y, time, newCombo, hitSound, hitSample) {
 
-	this.x = x;
-	this.y = y;
-	this.time = time;
+	this.x = parseInt(x);
+	this.y = parseInt(y);
+	this.time = parseInt(time);
 	this.newCombo = newCombo;
-	this.hitSound = hitSound;
+	this.hitSound = parseInt(hitSound);
 	this.hitSample = hitSample;
+
+	console.log(this);
 
 }
 
 // x, y, time, type, hitSound, curveType|curvePoints, slides, length, edgeSounds, edgeSets, hitSample
 function Slider(x, y, time, newCombo, hitSound, curve, slides, length, edgeSounds, edgeSets, hitSample) {
 
-	this.x = x;
-	this.y = y;
-	this.time = time;
+	this.x = parseInt(x);
+	this.y = parseInt(y);
+	this.time = parseInt(time);
 	this.newCombo = newCombo;
-	this.hitSound = hitSound;
+	this.hitSound = parseInt(hitSound);
 	this.curve = curve;
-	this.slides = slides;
-	this.length = length;
+	this.slides = parseInt(slides);
+	this.length = parseFloat(length);
 	this.edgeSounds = edgeSounds;
 	this.edgeSets = edgeSets;
 	this.hitSample = hitSample;
@@ -73,7 +75,7 @@ function Slider(x, y, time, newCombo, hitSound, curve, slides, length, edgeSound
 			console.warn("bro... where's the uninherited timing point");
 			return;
 		}
-		
+
 		return Math.round(length / (difficulty.sliderMultiplier * 100) * (beatLength / multiplier) * slides * 1000) / 1000;
 	
 	}
@@ -83,9 +85,9 @@ function Slider(x, y, time, newCombo, hitSound, curve, slides, length, edgeSound
 // x, y, time, type, hitSound, endTime, hitSample
 function Spinner(time, hitSound, endTime, hitSample) {
 
-	this.time = time;
-	this.duration = endTime - time;
-	this.hitSound = hitSound;
+	this.time = parseInt(time);
+	this.endTime = parseInt(endTime);
+	this.hitSound = parseInt(hitSound);
 	this.hitSample = hitSample;
 
 	this.getDuration = () => {

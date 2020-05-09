@@ -13,11 +13,11 @@ function ParseDifficulty(array) {
 
 function Difficulty(HPDrainRate, circleSize, overallDifficulty, approachRate, sliderMultiplier, sliderTickRate) {
 
-	this.HPDrainRate = HPDrainRate;
-	this.circleSize = circleSize;
-	this.overallDifficulty = overallDifficulty;
-	this.approachRate = approachRate;
-	this.sliderMultiplier = sliderMultiplier;
-	this.sliderTickRate = sliderTickRate;
+	this.HPDrainRate = parseFloat(HPDrainRate);
+	this.circleSize = parseFloat(circleSize);
+	this.overallDifficulty = parseFloat(overallDifficulty);
+	this.approachRate = parseFloat(approachRate);
+	this.sliderMultiplier = parseFloat(sliderMultiplier);
+	this.sliderTickRate = parseFloat(sliderTickRate);
 
 }

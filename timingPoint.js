@@ -9,14 +9,14 @@ function ParseTimingPoint(string) {
 
 function TimingPoint(time, beatLength, meter, sampleSet, sampleIndex, volume, uninherited, effects) {
 
-	this.time = time;
-	this.beatLength = beatLength;
-	this.meter = meter;
-	this.sampleSet = sampleSet;
-	this.sampleIndex = sampleIndex;
-	this.volume = volume;
+	this.time = parseInt(time);
+	this.beatLength = parseFloat(beatLength);
+	this.meter = parseInt(meter);
+	this.sampleSet = parseInt(sampleSet);
+	this.sampleIndex = parseInt(sampleIndex);
+	this.volume = parseInt(volume);
 	this.uninherited = uninherited;
-	this.effects = effects;
+	this.effects = parseInt(effects);
 
 	this.bpm = () => {
 		return 100 / beatLength;
