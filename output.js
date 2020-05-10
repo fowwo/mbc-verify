@@ -7,12 +7,10 @@ function outputFail(time, message) {
 	div.style = "float: left;";
 
 	let img = document.createElement("img");
+	img.className = "icon";
 	img.style = "box-shadow: 0 0 50px #f00;";
-	img.id = "status-icon";
 	img.src = "img/fail.png";
 	img.alt = "Fail!";
-	img.width = "50";
-	img.height = "50";
 	div.appendChild(img);
 	content.appendChild(div);
 
@@ -36,12 +34,10 @@ function outputSuccess(message) {
 	div.style = "float: left;";
 
 	let img = document.createElement("img");
+	img.className = "icon";
 	img.style = "box-shadow: 0 0 50px #0f0;";
-	img.id = "status-icon";
 	img.src = "img/success.png";
 	img.alt = "Success!";
-	img.width = "50";
-	img.height = "50";
 	div.appendChild(img);
 	content.appendChild(div);
 
@@ -63,12 +59,10 @@ function outputError(e, message) {
 	div.style = "float: left;";
 
 	let img = document.createElement("img");
+	img.className = "icon";
 	img.style = "box-shadow: 0 0 50px #ff0;";
-	img.id = "status-icon";
 	img.src = "img/error.png";
 	img.alt = "Error!";
-	img.width = "50";
-	img.height = "50";
 	div.appendChild(img);
 	content.appendChild(div);
 
