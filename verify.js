@@ -9,9 +9,8 @@ function verify(fileContent) {
 
 	try {
 
-		const content = document.getElementById("content-box");
-
-		content.innerHTML = "";
+		const table = document.getElementById("log");
+		table.innerHTML = "";
 		
 		const rawRhythmDifficulty = rhythm.replace(/\r/g, "").match(/(\[Difficulty\])(.+?)((\n){2}|$)/s)[0].trim().split("\n");
 		const rawRhythmTimingPoints = rhythm.replace(/\r/g, "").match(/(\[TimingPoints\])(.+?)((\n){2}|$)/s)[0].trim().split("\n");

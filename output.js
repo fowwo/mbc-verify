@@ -1,50 +1,60 @@
 function outputFail(time, message) {
 
-	const content = document.getElementById("content-box");
+	const table = document.getElementById("log");
 	document.body.style.backgroundImage = "linear-gradient(#400, black)";
 
-	let div = document.createElement("div");
-	div.style = "float: left;";
+	let row = document.createElement("tr");
+
+	let cell = document.createElement("td");
+	cell.style = "vertical-align: top;";
 
 	let img = document.createElement("img");
 	img.className = "icon";
 	img.style = "box-shadow: 0 0 50px #f00;";
 	img.src = "img/fail.png";
 	img.alt = "Fail!";
-	div.appendChild(img);
-	content.appendChild(div);
+	cell.appendChild(img);
 
-	div = document.createElement("div");
-	div.style = "width: 100%; height: 50px; padding: 9px 0 0 0; word-wrap: break-word;";
+	row.appendChild(cell);
+
+	cell = document.createElement("td");
+	cell.style = "padding: 0 5px;";
 	if (time == "" || time == null || time == undefined) {
-		div.innerHTML = `&nbsp;${message}`;
+		cell.innerHTML = message;
 	} else {
-		div.innerHTML = `&nbsp;<b>${time}</b> - ${message}`;
+		cell.innerHTML = `<b>${time}</b> - ${message}`;
 	}
-	content.appendChild(div);
+	row.appendChild(cell);
+
+	table.appendChild(row);
 
 }
 
 function outputSuccess(message) {
 
-	const content = document.getElementById("content-box");
+	const table = document.getElementById("log");
 	document.body.style.backgroundImage = "linear-gradient(#040, black)";
 
-	let div = document.createElement("div");
-	div.style = "float: left;";
+	let row = document.createElement("tr");
+
+	let cell = document.createElement("td");
+	cell.style = "vertical-align: top;";
 
 	let img = document.createElement("img");
 	img.className = "icon";
 	img.style = "box-shadow: 0 0 50px #0f0;";
 	img.src = "img/success.png";
 	img.alt = "Success!";
-	div.appendChild(img);
-	content.appendChild(div);
+	cell.appendChild(img);
 
-	div = document.createElement("div");
-	div.style = "width: 100%; height: 50px; padding: 9px 0 0 0; word-wrap: break-word;";
-	div.innerHTML = `&nbsp;${message}`;
-	content.appendChild(div);
+	row.appendChild(cell);
+
+	cell = document.createElement("td");
+	cell.style = "padding: 0 5px;";
+	cell.innerHTML = message;
+	row.appendChild(cell);
+
+	table.appendChild(row);
 	
 }
 
@@ -52,34 +62,45 @@ function outputError(e, message) {
 
 	console.error(e);
 
-	const content = document.getElementById("content-box");
+	const table = document.getElementById("log");
 	document.body.style.backgroundImage = "linear-gradient(#440, black)";
 
-	let div = document.createElement("div");
-	div.style = "float: left;";
+	let row = document.createElement("tr");
+
+	let cell = document.createElement("td");
+	cell.style = "vertical-align: top;";
 
 	let img = document.createElement("img");
 	img.className = "icon";
 	img.style = "box-shadow: 0 0 50px #ff0;";
 	img.src = "img/error.png";
 	img.alt = "Error!";
-	div.appendChild(img);
-	content.appendChild(div);
+	cell.appendChild(img);
 
-	div = document.createElement("div");
-	div.style = "width: 100%; height: 50px; padding: 9px 0 0 0; word-wrap: break-word;";
-	div.innerHTML = `&nbsp;${message}`;
-	content.appendChild(div);
+	row.appendChild(cell);
+
+	cell = document.createElement("td");
+	cell.style = "padding: 0 5px;";
+	cell.innerHTML = message;
+	row.appendChild(cell);
+
+	table.appendChild(row);
 	
 }
 
 function outputText(message) {
 
-	const content = document.getElementById("content-box");
+	const table = document.getElementById("log");
 
-	let div = document.createElement("div");
-	div.style = "width: 100%; height: 50px; padding: 9px 0 0 0; word-wrap: break-word;";
-	div.innerHTML = `&nbsp;${message}`;
-	content.appendChild(div);
+	let row = document.createElement("tr");
+	row.appendChild(document.createElement("td"));
+
+	let cell = document.createElement("td");
+	cell.style = "padding: 0 5px;";
+	cell.innerHTML = message;
+	row.appendChild(cell);
+
+	table.appendChild(row);
+	
 
 }
