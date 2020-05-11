@@ -93,19 +93,17 @@ function verify(fileContent) {
 		}
 
 		var valid = true;
-		if (rhythmCircles != circles || rhythmSliders != sliders || rhythmSpinners != spinners) {
-			if (rhythmCircles != circles) {
-				outputFail(null, `This map has <b>${circles} circle${circles != 1 ? "s" : ""}</b> but should have <b>${rhythmCircles}</b>.`);
-				valid = false;
-			} 
-			if (rhythmSliders != sliders) {
-				outputFail(null, `This map has <b>${sliders} slider${sliders != 1 ? "s" : ""}</b> but should have <b>${rhythmSliders}</b>.`);
-				valid = false;
-			}
-			if (rhythmSpinners != spinners) {
-				outputFail(null, `This map has <b>${spinners} spinner${spinners != 1 ? "s" : ""}</b> but should have <b>${rhythmSpinners}</b>.`);
-				valid = false;
-			}
+		if (rhythmCircles != circles) {
+			outputFail(null, `This map has <b>${circles} circle${circles != 1 ? "s" : ""}</b> but should have <b>${rhythmCircles}</b>.`);
+			valid = false;
+		} 
+		if (rhythmSliders != sliders) {
+			outputFail(null, `This map has <b>${sliders} slider${sliders != 1 ? "s" : ""}</b> but should have <b>${rhythmSliders}</b>.`);
+			valid = false;
+		}
+		if (rhythmSpinners != spinners) {
+			outputFail(null, `This map has <b>${spinners} spinner${spinners != 1 ? "s" : ""}</b> but should have <b>${rhythmSpinners}</b>.`);
+			valid = false;
 		}
 		for (var i = 0; i < rhythmObjects.length && i < hitObjects.length; i++) {
 			let a = rhythmObjects[i];
